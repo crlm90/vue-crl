@@ -1,91 +1,93 @@
-[![RealWorld Frontend](https://img.shields.io/badge/realworld-frontend-%23783578.svg)](http://realworld.io)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+# vuejs-webapp-sample
 
-----
-##New Maintainers wanted##
-Anyone up for the challenge of maintaining this repo?
-Reach out on twitter @vilsbole
-----
+[![license](https://img.shields.io/github/license/ybkuroki/vuejs-webapp-sample?style=for-the-badge)](https://github.com/ybkuroki/vuejs-webapp-sample/blob/master/LICENSE)
+[![workflow](https://img.shields.io/github/actions/workflow/status/ybkuroki/vuejs-webapp-sample/check.yml?label=check&logo=github&style=for-the-badge)](https://github.com/ybkuroki/vuejs-webapp-sample/actions?query=workflow%3Acheck)
+[![release](https://img.shields.io/github/release/ybkuroki/vuejs-webapp-sample?style=for-the-badge&logo=github)](https://github.com/ybkuroki/vuejs-webapp-sample/releases)
 
+## Preface
+This sample project uses [Vue.js](https://vuejs.org/index.html) and [Quasar Framework](https://quasar.dev/). It provides only Web UI. So, I recommend using the [golang-webapp-sample](https://github.com/ybkuroki/golang-webapp-sample) project as Back End Application.
 
+## Install
+Perform the following steps:
+1. Download and install [Node.js](https://nodejs.org/en/).
+1. Download and install [Visual Studio Code(VS Code)](https://code.visualstudio.com/).
+1. Install [vetur](https://github.com/vuejs/vetur) extension for VS Code.
+1. Clone this repository.
+1. Download and install npm packages.
+    ```bash
+    npm install
+    ```
 
-# ![RealWorld Example App](./static/rwv-logo.png)
+## Starting Server
+Perform the following steps:
+1. Perform [golang-webapp-sample](https://github.com/ybkuroki/golang-webapp-sample) project.
+1. Start the development server.
+    ```bash
+    npm run dev
+    ```
+1. When startup is complete, the console shows the following message:
+    ```
+    > vuejs-webapp-sample@3.0.0 dev
+    > vite --mode development
+    
+    
+    VITE v4.2.1  ready in 1362 ms
+    
+    ➜  Local:   http://localhost:3000/
+    ➜  press h to show help
+    ```
+1. Access the following URL in the Chrome.  
+[http://localhost:3000](http://localhost:3000)
 
-> Vue.js codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
-
-Project demo is available at https://vue-vuex-realworld.netlify.app/
-
-This codebase was created to demonstrate a fully fledged fullstack application built with **Vue.js** including CRUD operations, authentication, routing, pagination, and more.
-
-We've gone to great lengths to adhere to the **Vue.js** community styleguides & best practices.
-
-For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
-
-## Getting started
-
-Before contributing please read the following:
-
-1. [RealWorld guidelines](https://github.com/gothinkster/realworld/tree/master/spec) for implementing a new framework,
-2. [RealWorld frontend instructions](https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md)
-3. [Realworld API endpoints](https://github.com/gothinkster/realworld/tree/master/api)
-4. [Vue.js styleguide](https://vuejs.org/v2/style-guide/index.html). Priority A and B categories must be respected.
-5. [Editorconfig setup](https://editorconfig.org/#download). Most of the common editors support editorconfig by default (check the editorconfig download link for your ide), but editorconfig npm package have to installed globally for it to work,
-
+## Creating a Production Build
+Perform the following command:
 ```bash
-# install editorconfig globally
-> npm install -g editorconfig
+npm run build
 ```
 
-The stack is built using [vue-cli webpack](https://github.com/vuejs-templates/webpack) so to get started all you have to do is:
+## Project Map
+The following figure is the map of this sample project.
 
-``` bash
-# install dependencies
-> yarn install
-# serve with hot reload at localhost:8080
-> yarn serve
+```
+- vuejs-webapp-sample
+  + public          … Contains resouces of this project.
+  - src
+    + assets        … Contains source codes that Webpack doesn't need to build.
+    + components    … Contains components of Vue.
+    + api           … Implement the common library for Ajax.
+    + router        … Define Vue Router.
+    + store         … Define Vuex
+    + types         … Define types of the view models.
+    + views         … Define views of this project.
+    - App.vue       … Define a base view of this project.
+    - main.js       … Entry point.
+  - package.json    … Define npm packages.
 ```
 
-Other commands available are:
+## Views
+There are the following views in this sample.
 
-``` bash
-# build for production with minification
-yarn run build
+| View Name  | File Name         | Description                                                     |
+| :--------- | :---------------- | :-------------------------------------------------------------- |
+| Login View | ``LoginView.vue`` | The view for session authentication with username and password. |
+| Home View  | ``HomeView.vue``  | The view showing search results.                                |
+| About View | ``AboutView.vue`` | The view showing this application information.                  |
 
-# run unit tests
-yarn test
-```
+## Libraries
+This sample uses the following library.
 
-## To know
+| Library Name     | Version | Description                      |
+| :--------------- | :-----: | :------------------------------- |
+| vite             |  4.1.4  | The tool for Vue.js Development. |
+| Vue.js           | 3.2.47  | JavaScript Framework             |
+| Vue Router       |  4.1.6  | Library for Routing.             |
+| Pinia            | 2.0.32  | Flux library for Vue.js          |
+| Aixos            |  1.4.0  | library for Ajax.                |
+| Quasar Framework | 2.11.9  | CSS Framework                    |
 
-Current arbitrary choices are:
+## Contribution
+Please read CONTRIBUTING.md for proposing new functions, reporting bugs and submitting pull requests before contributing to this repository.
 
-- Vuex modules for store
-- Vue-axios for ajax requests
-- 'rwv' as prefix for components
+## License
+The License of this sample is *MIT License*.
 
-These can be changed when the contributors reach a consensus.
-
-## FAQ
-
-<p><details>
-  <summary><b>Where can I find the service worker file?</b></summary>
-
-  The service worker file is generated automatically. The implementation can be found under [`src/registerServiceWorker.js`](https://github.com/gothinkster/vue-realworld-example-app/blob/eeaeb34fa440d00cd400545301ea203bd2a59284/src/registerServiceWorker.js). You can find the dependencies implementation in this repo: [yyx990803/register-service-worker](https://github.com/yyx990803/register-service-worker#readme).
-
-  Also, Google provided a good documentation on how to register a service worker: https://developers.google.com/web/fundamentals/primers/service-workers/registration
-</details></p>
-
-<p><details>
-  <summary><b>Vue.js Function API / Migration to Vue.js 3</b></summary>
-
-  Related resources:
-
-  - [Vue.js Function API RFC](https://github.com/vuejs/rfcs/blob/function-apis/active-rfcs/0000-function-api.md)
-  - [`vue-function-api` plugin](https://github.com/vuejs/vue-function-api)
-
-  Vue.js 3 will likely introduce breaking changes on how Vue.js applications will look like. For example, the Vue.js Function API might be introduced. This would cause a lot of our components to change in the overall structure. The changes would be minimal though. With the `vue-function-api` plugin, these changes could be applied already. The problem is that multiple integrations are not working with the plugin. There are intentions to make this work, but for the time being, we should rather focus on different areas. If you still want to be experimental with it, we are happy to get a Pull Request with some experimental feature implementations.
-</details></p>
-
-## Connect
-
-Join us on [Discord](https://discord.gg/NE2jNmg)
