@@ -10,7 +10,7 @@ steps:
    args: ['-c', 'ls -ltr']
  - name: 'node'
    entrypoint: 'sh'
-   args: ['-c', 'cd target && ls -ltr']   
+   args: ['-c', 'cd dist && ls -ltr']   
  ## Docker Build
  #- name: 'gcr.io/cloud-builders/docker'
  #  args: ['build', '-t', 
