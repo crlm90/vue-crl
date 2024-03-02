@@ -24,11 +24,11 @@ steps:
  #  volumes:
  #  - name: 'myvolume'
  #    path: '/persistent_volume'
- ## Deploy to Cloud Run
- #- name: google/cloud-sdk
- #  args: ['gcloud', 'run', 'deploy', 'vue-crl:${SHORT_SHA}', 
- #         '--image=gcr.io/$PROJECT_ID/vue-crl:${SHORT_SHA}', 
- #         '--region', 'asia-southeast2', '--platform', 'managed', 
- #         '--allow-unauthenticated']
+ # Deploy to Cloud Run
+ - name: google/cloud-sdk
+   args: ['gcloud', 'run', 'deploy', 'vue-crl', 
+          '--image=gcr.io/$PROJECT_ID/vue-crl:${SHORT_SHA}', 
+          '--region', 'asia-southeast2', '--platform', 'managed', 
+          '--allow-unauthenticated']
 images:
 - 'gcr.io/$PROJECT_ID/vue-crl:${SHORT_SHA}'
