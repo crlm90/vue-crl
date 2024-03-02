@@ -4,7 +4,7 @@ steps:
    args: ['install']
  - name: 'node'
    entrypoint: 'npm'
-   args: ['build']
+   args: ['run', 'build']
  - name: 'node'
    entrypoint: 'sh'
    args: ['-c', 'ls -ltr']
