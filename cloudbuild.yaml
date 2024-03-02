@@ -7,14 +7,23 @@ steps:
    args: ['run', 'build']
  - name: 'node'
    entrypoint: 'sh'
-   args: ['-c', 'ls -ltr']
+   args: ['-c', 'ls -ltr && cp default.conf /persistent_volume && cp -r dist /persistent_volume']
+   volumes:
+   - name: 'myvolume'
+     path: '/persistent_volume'
  - name: 'node'
    entrypoint: 'sh'
-   args: ['-c', 'cd dist && ls -ltr']   
+   args: ['-c', 'ls -ltr /persistent_volume && ls -ltr /persistent_volume/dist']
+   volumes:
+   - name: 'myvolume'
+     path: '/persistent_volume'
  # Docker Build
  - name: 'gcr.io/cloud-builders/docker'
    args: ['build', '-t', 
           'gcr.io/$PROJECT_ID/vue-crl:${SHORT_SHA}', '.']
+   volumes:
+   - name: 'myvolume'
+     path: '/persistent_volume'
  ## Deploy to Cloud Run
  #- name: google/cloud-sdk
  #  args: ['gcloud', 'run', 'deploy', 'vue-crl:${SHORT_SHA}', 
