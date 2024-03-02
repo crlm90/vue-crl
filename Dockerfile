@@ -5,3 +5,5 @@ RUN ls -ltr
 COPY ./dist /usr/share/nginx/html
 
 RUN ls -ltr /usr/share/nginx/html
+
+RUN more /etc/nginx/nginx.conf
