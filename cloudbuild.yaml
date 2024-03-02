@@ -5,6 +5,12 @@ steps:
  - name: 'node'
    entrypoint: 'npm'
    args: ['run', 'build']
+ - name: 'node'
+   entrypoint: 'sh'
+   args: ['-c', 'ls -ltr']
+ - name: 'node'
+   entrypoint: 'sh'
+   args: ['-c', 'cd target && ls -ltr']   
  ## Docker Build
  #- name: 'gcr.io/cloud-builders/docker'
  #  args: ['build', '-t', 
