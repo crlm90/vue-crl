@@ -1,7 +1,5 @@
 FROM nginx:alpine
 
-RUN cd /persistent_volume && ls -ltr
-
 COPY /persistent_volume/dist /usr/share/nginx/html
 
 COPY /persistent_volume/default.conf /etc/nginx/conf.d
