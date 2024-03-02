@@ -1,16 +1,16 @@
 steps:
  - name: 'node'
+   entrypoint: 'npm'
+   args: ['install']
+ - name: 'node'
+   entrypoint: 'npm'
+   args: ['build']
+ - name: 'node'
    entrypoint: 'sh'
-   args: ['-c', 'npm install && npm run build && ls -ltr && cd  target && ls -ltr']
- #- name: 'node'
- #  entrypoint: 'npm'
- #  args: ['run', 'build']
- #- name: 'node'
- #  entrypoint: 'sh'
- #  args: ['-c', 'ls -ltr']
- #- name: 'node'
- #  entrypoint: 'sh'
- #  args: ['-c', 'cd target && ls -ltr']   
+   args: ['-c', 'ls -ltr']
+ - name: 'node'
+   entrypoint: 'sh'
+   args: ['-c', 'cd target && ls -ltr']   
  ## Docker Build
  #- name: 'gcr.io/cloud-builders/docker'
  #  args: ['build', '-t', 
