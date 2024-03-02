@@ -1,8 +1,8 @@
 FROM nginx:alpine
 
-COPY /persistent_volume/dist /usr/share/nginx/html
+COPY ./dist /usr/share/nginx/html
 
-COPY /persistent_volume/default.conf /etc/nginx/conf.d
+COPY ./default.conf /etc/nginx/conf.d
 
 RUN ls -ltr /usr/share/nginx/html
 
